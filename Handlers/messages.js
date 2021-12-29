@@ -119,7 +119,9 @@ export default async function cmd (msg) {
 		return await log (msg, args, msg.author)
 	}
 
-	// Help
+	if (command === '!info') {
+return await log (msg, args, msg.author)
+	}	// Help
 
 	if (command === '!help') {
 		return await help (msg, args)
