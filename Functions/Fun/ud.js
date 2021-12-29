@@ -71,12 +71,7 @@ async function search (msg, args) {
 		resultFields.push(
 			{
 				name: `__**Result ${i + 1}**__`,
-				value: `
-				**Definition**:\n${val.definition}
-				**Link**:\n${val.link}
-				**Author**: \` ${val.author} \`
-				**Votes**: \` ${val.votes} \`
-				**Example**:\n\`\`\`${val.example}\`\`\``
+				value: `**Definition**:\n${val.definition}\n**Link**:\n${val.link}\n**Author**: \` ${val.author} \`\n**Votes**: \` ${val.votes} \`\n**Example**:\n\`\`\`${val.example}\`\`\``
 			}
 		)
 	}

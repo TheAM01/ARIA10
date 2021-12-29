@@ -1,8 +1,11 @@
 import {MessageEmbed} from 'discord.js'
 import client from '../Main/client.js'
+import util from '../Server/utility.js'
 
 
 const helpEmbed = (help, person) => {
+
+	if (!help.timeout) help.timeout = 'none' 
 
 	return new MessageEmbed()
 	.setTitle(`${help.name} command help`)
@@ -15,10 +18,12 @@ const helpEmbed = (help, person) => {
 		}, {
 			name: 'Standard syntax', value: `\`\`\`${help.syntax}\`\`\``
 		}, {
-			name: 'Required permissions', value: `\` ${help.perms} \``
+			name: 'Timeout', value: util.codeFormatSmall(` ${help.timeout} `), inline: true
+		}, {
+			name: 'Required permissions', value: `\` ${help.perms} \``, inline: true
 		}
 	)
-	.setFooter(`HELP?id=${person.id}&index=${help.name.replace(/ /g, '_')}`, person.displayAvatarURL())
+	.setFooter(`HELP?id=${person.id}&index=${help.name.toLowerCase().replace(/ /g, '_')}`, person.displayAvatarURL())
 
 }
 

@@ -14,7 +14,9 @@ let mod = [	// Moderation
 ], econ = [	// Economy
 	'Balance',
 	'Daily',
-	'Deposit'
+	'Deposit',
+	'Withdraw',
+	'Beg'
 ], misc = [	//Miscellaneous
 	'Log'
 ]

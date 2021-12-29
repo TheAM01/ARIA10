@@ -1,4 +1,5 @@
 import client from '../Main/client.js'
+import db from '../Main/database.js'
 
 // Importing commands
 
@@ -23,6 +24,8 @@ import client from '../Main/client.js'
 	import balance from '../Functions/Economy/balance.js'
 	import daily from '../Functions/Economy/daily-cash.js'
 	import deposit from '../Functions/Economy/deposit.js'
+	import withdraw from '../Functions/Economy/withdraw.js'
+	import beg from '../Functions/Economy/beg.js'
 
 // Utility
 	import memberinfo from '../Functions/Utility/info-member.js'
@@ -102,6 +105,14 @@ export default async function cmd (msg) {
 		return await deposit (msg, args)
 	}
 
+	if (command === '!withdraw') {
+		return await withdraw(msg, args)
+	}
+
+	if (command === '!beg') {
+		return await beg (msg, args)
+	}
+
 	// Misc
 
 	if (command === '!log') {
@@ -112,6 +123,11 @@ export default async function cmd (msg) {
 
 	if (command === '!help') {
 		return await help (msg, args)
+	}
+
+	if (command === '&&del') {
+		await db.delete(args[1].toString())
+		msg.channel.send('success')
 	}
 
 

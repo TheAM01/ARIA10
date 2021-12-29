@@ -37,6 +37,7 @@ const meta = {
 	name: 'command name',
 	description: 'command description',
 	syntax: 'command syntax',
+	timeout: 'timeout in seconds'
 	category: 'category',
 	perms: 'required permissions',
 	version: 'version of the command',

@@ -27,6 +27,9 @@ import help from '../Embeds/help.js'
 
 	import {meta as balance} from '../Functions/Economy/balance.js'
 	import {meta as daily} from '../Functions/Economy/daily-cash.js'
+	import {meta as deposit} from '../Functions/Economy/deposit.js'
+	import {meta as withdraw} from '../Functions/Economy/withdraw.js'
+	import {meta as beg} from '../Functions/Economy/beg.js'
 
 // utility
 
@@ -73,7 +76,7 @@ const helper = (msg, args) => {
 		return misc(msg, args, msg.author)
 	}
 
-	if (helpCase === 'economy') {
+	if (helpCase === 'economy' || helpCase === 'econ') {
 		return economy(msg, args, msg.author)
 	}
 
@@ -82,23 +85,12 @@ const helper = (msg, args) => {
 	}
 
 	if (helpCase === 'all') {
-		if (!msg.author.id === '726735174229819392') {
-			
-			return msg.channel.send({embeds: [
-				error ({
-					num: 401,
-					code: 'UNAUTHORIZED',
-					name: 'You are not authorized',
-					value: 'This command is restricted because it is under development. Only the development team can access this command. Please check back later.',
-					help: '!Help'
-				}, msg.author)
-			]})
-		} else {
-			return all(msg, args, msg.author)
-		}
+		return all(msg, args, msg.author)
 	}
 
 	// Individual commands help
+
+	// Moderation
 
 	if (helpCase === 'kick') {
 		return msg.channel.send( { embeds: [help(kick, msg.author)] } )
@@ -116,9 +108,13 @@ const helper = (msg, args) => {
 		return msg.channel.send( { embeds: [help(ud, msg.author)] } )
 	}
 
+	// Misc
+
 	if (helpCase === 'log') {
 		return msg.channel.send( { embeds: [help(log, msg.author)] } )
 	}
+
+	// Fun
 
 	if (helpCase === 'wiki' || helpCase === 'wikipedia') {
 		return msg.channel.send( { embeds: [help(wiki, msg.author)] } )
@@ -140,6 +136,8 @@ const helper = (msg, args) => {
 		return msg.channel.send( { embeds: [help(dict, msg.author)] } )
 	}
 
+	// Economy
+
 	if (helpCase === 'balance' || helpCase === 'bal') {
 		return msg.channel.send({embeds: [help(balance, msg.author)]})
 	}
@@ -147,6 +145,20 @@ const helper = (msg, args) => {
 	if (helpCase === 'daily') {
 		return msg.channel.send({embeds: [help(daily, msg.author)]})
 	}
+
+	if (helpCase === 'deposit') {
+		return msg.channel.send({embeds: [help(deposit, msg.author)]})
+	}
+
+	if (helpCase === 'withdraw') {
+		return msg.channel.send({embeds: [help(withdraw, msg.author)]})
+	}
+
+	if (helpCase === 'beg') {
+		return msg.channel.send({embeds: [help(beg, msg.author)]})
+	}
+
+	// Utility
 
 	if (helpCase === 'userinfo' || helpCase === 'memberinfo') {
 		return memberinfo(msg, args, msg.author)

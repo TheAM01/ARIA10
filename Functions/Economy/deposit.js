@@ -1,6 +1,7 @@
 import error from '../../Embeds/error.js'
 import db from '../../Main/database.js'
 import depositEmbed from '../../Embeds/success.js'
+import util from '../../Server/utility.js'
 
 
 
@@ -24,7 +25,9 @@ async function foo (msg, args) {
 			}, msg.author)]
 		})
 
-	} else if (parseInt(args[1]) % 1 != 0 || parseInt(args[1]) < 1) {
+	}
+	
+	if (util.isNatural(args[1]) && args[1].toString().toLowerCase() !== 'all') {
 
 		return msg.channel.send({
 			embeds: [ error({
@@ -35,9 +38,11 @@ async function foo (msg, args) {
 				help: '!Help Deposit'
 			}, msg.author)]
 		})
-		
-	} else if (args[1].toString().toLowerCase() === 'all') {
-		amount = wallet
+
+	}
+	
+	if (args[1].toString().toLowerCase() === 'all') {
+		amount = wallet;
 	} else {
 		amount = parseInt(args[1]);
 	}
@@ -68,7 +73,7 @@ async function foo (msg, args) {
 
 	let obj = {
 		num: 200,
-		description: `Successfully deposited ${amount} cash into your bank.`,
+		description: `Successfully deposited \` ${amount} \` cash into your bank.`,
 		title: 'Deposit successful',
 		command: 'DEPOSIT'
 	}
@@ -82,7 +87,7 @@ async function foo (msg, args) {
 
 const meta = {
   name: 'Deposit',
-  description: 'Deposits cash from your wallet to your bank,',
+  description: 'Deposits cash from your wallet to your bank. Use ` !Deposit All ` to deposit all cash in wallet to bank.',
   syntax: '!Deposit Amount',
   category: 'Economy',
   perms: 'none',

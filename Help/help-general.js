@@ -8,7 +8,7 @@ function helper (msg, args, person) {
 	const log = new MessageEmbed()
 	.setTitle(`General Help`)
 	.setAuthor(`${client.user.username} help`, client.user.displayAvatarURL())
-	.setDescription(`This is the list of command categories available in ${client.user.username}.\nRun the corresponding help command for each category to get its list of comamnds.`)
+	.setDescription(`This is the list of command categories available in ${client.user.username}.\nRun the corresponding help command for each category to get its list of commands.`)
 	.addFields(
 		{
 			name: 'Fun commands', value: c('!Help Fun')

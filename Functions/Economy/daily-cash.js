@@ -1,6 +1,7 @@
 import ms from 'pretty-ms';
 import db from '../../Main/database.js'
 import error from '../../Embeds/error.js'
+import success from '../../Embeds/success.js'
 
 
 async function dailyCash (msg, args) {
@@ -28,7 +29,16 @@ async function dailyCash (msg, args) {
 	await db.set(`${msg.author.id}_wallet`, currentBalance + reward);
 	await db.set(`${msg.author.id}_daily_check`, Date.now())
 
-	msg.channel.send(`Congrats, ${msg.author.username}! You claimed you daily prize of ${reward.toString()} Coins.`)
+	let obj = {
+		num: 200,
+		description: `Congratulations, ${msg.author.username}. You claimed your daily prize of ${reward} cash!`,
+		title: 'Daily cash claim successful',
+		command: 'DAILY_CASH'
+	}
+
+	const embed = success(obj, msg.author)
+
+	msg.channel.send({embeds: [embed]})
 
 }
 
@@ -37,6 +47,7 @@ const meta = {
   name: 'Daily cash redeem',
   description: 'Redeems the daily reward of 5000 coins.',
   syntax: '!Daily',
+	timeout: '24h',
   category: 'Economy',
   perms: 'none',
   version: '1.0',
