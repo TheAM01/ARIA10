@@ -19,6 +19,7 @@ import db from '../Main/database.js'
 
 // Misc
 	import log from '../Embeds/log.js'
+	import list from '../Help/help-all.js'
 
 // Economy
 	import balance from '../Functions/Economy/balance.js'
@@ -29,6 +30,8 @@ import db from '../Main/database.js'
 
 // Utility
 	import memberinfo from '../Functions/Utility/info-member.js'
+	import guildinfo from '../Functions/Utility/info-guild.js'
+	import avatar from '../Functions/Utility/avatar.js'
 
 // end
 
@@ -90,6 +93,14 @@ export default async function cmd (msg) {
 		return await memberinfo (msg, args)
 	}
 
+	if (command === '!guildinfo' || command === '!serverinfo') {
+		return await guildinfo (msg, args)
+	}
+	
+	if (command === '!avatar' || command === '!pfp') {
+		return await avatar (msg, args)
+	}
+
 
 	// Economy
 
@@ -117,6 +128,10 @@ export default async function cmd (msg) {
 
 	if (command === '!log') {
 		return await log (msg, args, msg.author)
+	}
+
+	if (command === '!list') {
+		return await list (msg, args, msg.author)
 	}
 
 	if (command === '!info') {

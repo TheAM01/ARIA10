@@ -12,7 +12,7 @@ function embedFunction (msg, args, obj) {
 	.setAuthor(`${client.user.username} Utility`, client.user.displayAvatarURL())
 	.addFields(obj.fields)
 	.setColor('#39ad58')
-	.setThumbnail(obj.person.displayAvatarURL())
+	.setThumbnail(obj.thumbnail)
 	.setFooter(`INFO?type=${obj.type.toLowerCase()}&id=${msg.author.id}`, msg.author.displayAvatarURL())
     
     

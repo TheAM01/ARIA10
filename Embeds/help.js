@@ -18,7 +18,7 @@ const helpEmbed = (help, person) => {
 		}, {
 			name: 'Standard syntax', value: `\`\`\`${help.syntax}\`\`\``
 		}, {
-			name: 'Timeout', value: util.codeFormatSmall(` ${help.timeout} `), inline: true
+			name: 'Timeout', value: util.inlineCode(` ${help.timeout} `), inline: true
 		}, {
 			name: 'Required permissions', value: `\` ${help.perms} \``, inline: true
 		}

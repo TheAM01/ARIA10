@@ -34,6 +34,8 @@ import help from '../Embeds/help.js'
 // utility
 
 	import {meta as memberinfo} from '../Functions/Utility/info-member.js'
+	import {meta as guildinfo} from '../Functions/Utility/info-guild.js'
+	import {meta as avatar} from '../Functions/Utility/avatar.js'
 
 
 // importing help categories
@@ -161,8 +163,17 @@ const helper = (msg, args) => {
 	// Utility
 
 	if (helpCase === 'userinfo' || helpCase === 'memberinfo') {
-		return memberinfo(msg, args, msg.author)
+		return msg.channel.send({embeds: [help(memebrinfo, msg.author)]})
 	}
+
+	if (helpCase === 'guildinfo' || helpCase === 'serverinfo') {
+		return msg.channel.send({embeds: [help(guildinfo, msg.author)]})
+	}
+
+	if (helpCase === 'avatar' || helpCase === 'pfp') {
+		return msg.channel.send({embeds: [help(avatar, msg.author)]})
+	}
+
 
 	else {
 		return msg.channel.send({embeds: [

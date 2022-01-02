@@ -10,7 +10,9 @@ let mod = [	// Moderation
 	'UD',
 	'Wikipedia'
 ], util = [	//Utility
-	'Memberinfo'
+	'Memberinfo',
+	'Guildinfo',
+	'Avatar'
 ], econ = [	// Economy
 	'Balance',
 	'Daily',
@@ -18,7 +20,8 @@ let mod = [	// Moderation
 	'Withdraw',
 	'Beg'
 ], misc = [	//Miscellaneous
-	'Log'
+	'Log',
+	'List'
 ]
 
 

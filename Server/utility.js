@@ -1,17 +1,19 @@
 function helpFieldsArray(elon) {
 	let musk = [];
 	for (let i = 0; i < elon.length; i++) {
-		musk.push({ name: elon[i].toString(), value: codeFormat(`!Help ${elon[i].toString()}`) })
+		musk.push({ name: elon[i].toString(), value: multilineCode(`!Help ${elon[i].toString()}`) })
 	}
 	return musk
 }
 
-function codeFormat(elon) {
+function multilineCode(elon) {
 	return `\`\`\`${elon}\`\`\``
 }
 
-function codeFormatSmall(elon) {
-	return`\`${elon}\``
+function inlineCode(elon, musk) {
+	if (typeof musk !== 'string') musk = '';
+	if (!musk) musk = '';
+	return`\`${musk}${elon}${musk}\``
 }
 
 function isNatural() {
@@ -28,10 +30,20 @@ function isNaturalLol(elon) {
 	return false
 }
 
+function preciseDate(elon) {
+	let musk = [], args = elon.toString().split(' ');
+	for (let i = 0; i < 5; i++) {
+		musk.push(args[i])
+	}
+	return musk.join(' ')
+}
+
+
 export default {
 	helpFieldsArray,
-	codeFormat,
-	codeFormatSmall,
+	multilineCode,
+	inlineCode,
 	isNatural,
-	isNaturalLol
+	isNaturalLol,
+	preciseDate
 }

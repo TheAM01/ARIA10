@@ -1,6 +1,6 @@
 import error from '../../Embeds/error.js'
 import infoEmbed from '../../Embeds/Templates/info-embed.js'
-import ms from 'pretty-ms'
+import util from '../../Server/utility.js'
 
 
 function foo (msg, args) {
@@ -8,7 +8,6 @@ function foo (msg, args) {
 	let person
 
 	if (!args[1] || !msg.mentions.members.first()) {
-		console.log(this)
 
 		return msg.channel.send({
 			embeds: [ error({
@@ -28,13 +27,17 @@ function foo (msg, args) {
 	let timeRegistered = new Date(person.user.createdAt)
 	let roles = [];
 
+	timeJoined = util.preciseDate(timeJoined)
+	timeRegistered = util.preciseDate(timeRegistered)
+
 	for (let i = 0; i < person._roles.length; i++) {
 		roles.push(`<@&${person._roles[i]}>`)
 	}
 	roles.push('@everyone')
 
 	const obj = {
-		person: person,
+		obj: person,
+		thumbnail: person.user.displayAvatarURL(),
 		type: 'Member',
 		title: `${person.user.username}\'s user`,
 		fields: [
@@ -43,9 +46,9 @@ function foo (msg, args) {
 			}, {
 				name: 'ID', value: person.user.id
 			}, {
-				name: `Date joined ${msg.guild.name}`, value: timeJoined.toString().replace('GMT+0000 (Coordinated Universal Time)', '')
+				name: `Date joined ${msg.guild.name}`, value: timeJoined
 			}, {
-				name: 'Date joined Discord', value: timeRegistered.toString().replace('GMT+0000 (Coordinated Universal Time)', '')
+				name: 'Date joined Discord', value: timeRegistered
 			}, {
 				name: 'Roles', value: roles.join(',\n')
 			}

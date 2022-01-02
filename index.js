@@ -10,7 +10,7 @@ import db from './Main/database.js'
 
 
 client.on('ready', async () => {
-	
+
 	let upNum = await update();
 	up()
 
