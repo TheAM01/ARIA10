@@ -11,13 +11,17 @@ function logger (msg, args, person) {
 	.setDescription(`Whats new in ${client.user.username} v${info.version}?`)
 	.addFields(
 		{
-			name: 'Fixed bugs', value: 'Fixed major bugs in many sectors'
+			name: 'Fixed bugs', value: 'Fixed minor bugs in some commands.'
 		}, {
-			name: 'New sector/category', value: 'We are happy to announce the economy sector with many upcoming commands.'
+			name: 'Added new command', value: 'Added the ` !List ` command in the Miscellaneous sector.'
 		}, {
-			name: 'Help All is available', value: 'The `!Help All` command is now open to all users. It lists all commands available within the bot categorized in sectors.'
+			name: 'Added new command', value: 'Added the ` !Avatar ` command in the Utility sector.'
 		}, {
-			name: 'New upcoming help format', value: 'The help commands are getting an update and are getting better than ever!'
+			name: 'Added new command', value: 'Added the ` !Memberinfo ` command in the Utility sector.'
+		}, {
+			name: 'Added new command', value: 'Added the ` !Guildinfo ` command in the Utility sector.'
+		}, {
+			name: 'New help format', value: 'The help commands are now better than ever!'
 		}
 	)
 	.setColor('#39ad58')

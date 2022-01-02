@@ -3,6 +3,7 @@ import infoEmbed from '../../Embeds/Templates/info-embed.js'
 import util from '../../Server/utility.js'
 
 
+
 function foo (msg, args) {
 
 	let {guild} = msg
@@ -55,7 +56,7 @@ function foo (msg, args) {
 }
 
 const meta = {
-  name: 'MembeGuild info',
+  name: 'Guild info',
   description: 'Returns information about the current guild including roles, ID, owner, and creation date.',
   syntax: '!Guildinfo',
   category: 'Utility',

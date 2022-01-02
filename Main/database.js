@@ -1,2 +1,2 @@
-import database from '@replit/database'
-export default new database()
+import Database from '@replit/database'
+export default new Database()
