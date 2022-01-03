@@ -49,7 +49,7 @@ Command info is the info that will be shown in the help-info embed when the help
 ```js
 
 const meta = {
-//meta object declaration
+  //meta object declaration
 }
 
 export {meta} // exporting the info
@@ -72,7 +72,7 @@ export default async function cmd (msg) {
     await cmd (msg, args)
   }
   
-  //  ...
+	//  ...
 }
 
 ```
