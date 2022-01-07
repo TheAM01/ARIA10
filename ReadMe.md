@@ -2,7 +2,7 @@
 
 *` Build: Stable ALPHA 1.10.6 `*
 
-Refer to [Assets/Update.md](https://github.com/TheAM01/ARIA10/tree/Projects/Assets/Update.md) for the recent updates.
+Refer to [Assets/Update.md](https://github.com/TheAM01/ARIA10/blob/Projects/Assets/Update.md) for the recent updates.
 
 ## Introduction
 
