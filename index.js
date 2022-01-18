@@ -20,7 +20,7 @@ client.on('ready', async () => {
 
 	// ICP: Individual Child Program
 
-	client.user.setActivity('!Help', { type: 'LISTENING' });
+	client.user.setActivity('?Help', { type: 'LISTENING' });
 
 });
 

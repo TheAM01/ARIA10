@@ -10,7 +10,7 @@ import error from './error.js'
 import client from '../Main/client.js'
 
 
-function embedFunction (msg, args, obj) {
+function main (msg, args, obj) {
 
 	const embed = new MessageEmbed()
 	
@@ -31,13 +31,25 @@ import error from '../../Embeds/error.js'
 
 function foo (msg, args) {
 
+	// do something
+
+	return msg.channel.send('[stuff]')
+	.catch(err => {
+		util.log({
+			error: err,
+			command: '[path]',
+			msg: msg
+		});
+	});
+
 }
+
 
 const meta = {
 	name: 'command name',
 	description: 'command description',
 	syntax: 'command syntax',
-	timeout: 'timeout in seconds',
+	timeout: 'timeout in seconds'
 	category: 'category',
 	perms: 'required permissions',
 	version: 'version of the command',

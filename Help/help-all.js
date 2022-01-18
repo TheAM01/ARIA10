@@ -13,15 +13,7 @@ function helper (msg, args, person) {
 	.setDescription(`This is the list of all commands available in ${client.user.username}.\nRun the corresponding help command for each command to get its details and syntax. Example: \`!Help [command-name]\`.`)
 	.addFields(
 		{
-			name: 'Moderation', value: c(list.mod)
-		}, {
-			name: 'Fun', value: c(list.fun)
-		}, {
-			name: 'Utility', value: c(list.util)
-		}, {
-			name: 'Economy', value: c(list.econ)
-		}, {
-			name: 'Miscellaneous', value: c(list.misc)
+			name: 'Utility', value: c(list.utility)
 		}
 	)
 	.setColor('#39ad58')
